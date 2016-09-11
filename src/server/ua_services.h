@@ -15,8 +15,12 @@ extern "C" {
  * Services
  * ========
  *
- * This section contains the services defined in the OPC UA standard grouped
- * into service sets. Their definition is internal and *not visible to users*.
+ * In OPC UA, all communication is based on service calls, each consisting of a
+ * request and a response message. Services are pre-defined in the standard and
+ * cannot be changed. But you can use the :ref:`Call <method-services>` service
+ * to invoke user-defined methods on the server.
+ *
+ * The following service signatures are internal and *not visible to users*.
  * Still, we present them here for an overview of the capabilities of OPC UA.
  * Please refer to the :ref:`client` and :ref:`server` API where the services
  * are exposed to end users. */
@@ -120,6 +124,8 @@ void Service_DeleteReferences(UA_Server *server, UA_Session *session,
                               UA_DeleteReferencesResponse *response);
 
 /**
+ * .. _view-services:
+ *
  * View Service Set
  * ----------------
  * Clients use the browse Services of the View Service Set to navigate through
@@ -198,10 +204,13 @@ void Service_Write(UA_Server *server, UA_Session *session,
 /* Not Implemented: Service_HistoryUpdate */
 
 /**
+ * .. _method-services:
+ *
  * Method Service Set
  * ------------------
  * The Method Service Set defines the means to invoke methods. A method shall be
- * a component of an Object. */
+ * a component of an Object. See the section on :ref:`MethodNodes <methodnode>`
+ * for more information. */
 /* Used to call (invoke) a list of Methods. Each method call is invoked within
  * the context of an existing Session. If the Session is terminated, the results
  * of the method's execution cannot be returned to the Client and are
