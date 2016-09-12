@@ -16,9 +16,11 @@ extern "C" {
  * ========
  *
  * In OPC UA, all communication is based on service calls, each consisting of a
- * request and a response message. Services are pre-defined in the standard and
- * cannot be changed. But you can use the :ref:`Call <method-services>` service
- * to invoke user-defined methods on the server.
+ * request and a response message. These messages are defined as data structures
+ * with a binary encoding and listed in :ref:`generated-types`. Since all
+ * Services are pre-defined in the standard, they cannot be modified by the
+ * user. But you can use the :ref:`Call <method-services>` service to invoke
+ * user-defined methods on the server.
  *
  * The following service signatures are internal and *not visible to users*.
  * Still, we present them here for an overview of the capabilities of OPC UA.

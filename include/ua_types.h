@@ -831,6 +831,8 @@ UA_UInt32 UA_EXPORT UA_UInt32_random(void); /* no cryptographic entropy */
 UA_Guid UA_EXPORT UA_Guid_random(void);     /* no cryptographic entropy */
 
 /**
+ * .. _generated-types:
+ *
  * Generated Data Type Definitions
  * -------------------------------
  *
