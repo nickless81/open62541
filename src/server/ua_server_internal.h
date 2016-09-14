@@ -76,9 +76,6 @@ struct UA_Server {
     /* Config is the last element so that MSVC allows the usernamePasswordLogins
        field with zero-sized array */
     UA_ServerConfig config;
-
-    /* Disable some consistency checks when adding nodes */
-    UA_Boolean bootstrapInformationModel;
 };
 
 /*****************/
@@ -136,6 +133,9 @@ UA_StatusCode
 isNodeInTree(UA_NodeStore *ns, const UA_NodeId *rootNode,
              const UA_NodeId *nodeToFind, const UA_NodeId *referenceTypeIds,
              size_t referenceTypeIdsSize, UA_Boolean *found);
+
+const UA_Node *
+getNodeType(UA_Server *server, const UA_Node *node);
 
 /***************************************/
 /* Check Information Model Consistency */
