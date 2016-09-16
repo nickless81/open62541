@@ -186,8 +186,8 @@ UA_StatusCode
 MonitoredItem_registerSampleJob(UA_Server *server, UA_MonitoredItem *mon) {
     UA_Job job;
     job.type = UA_JOBTYPE_METHODCALL;
-    job.methodCall.method = (UA_ServerCallback)UA_MoniteredItem_SampleCallback;
-    job.methodCall.data = mon;
+    job.job.methodCall.method = (UA_ServerCallback)UA_MoniteredItem_SampleCallback;
+    job.job.methodCall.data = mon;
     UA_StatusCode retval = UA_Server_addRepeatedJob(server, job,
                                                     (UA_UInt32)mon->samplingInterval,
                                                     &mon->sampleJobGuid);
@@ -435,8 +435,8 @@ UA_StatusCode Subscription_registerPublishJob(UA_Server *server, UA_Subscription
 
     UA_Job job;
     job.type = UA_JOBTYPE_METHODCALL;
-    job.methodCall.method = (UA_ServerCallback)UA_Subscription_publishCallback;
-    job.methodCall.data = sub;
+    job.job.methodCall.method = (UA_ServerCallback)UA_Subscription_publishCallback;
+    job.job.methodCall.data = sub;
     UA_StatusCode retval = UA_Server_addRepeatedJob(server, job,
                                                     (UA_UInt32)sub->publishingInterval,
                                                     &sub->publishJobGuid);
